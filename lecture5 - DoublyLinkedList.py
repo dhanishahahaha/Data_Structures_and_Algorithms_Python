@@ -1,6 +1,6 @@
 '''doubly linked list
 
-DLL helps to propagate or move in both dierctions, every DLL node has a prev, item, next. 
+DLL helps to propagate or move in both directions, every DLL node has a prev, item, next. 
 
 --> make a node class to define a node 
 --> make a DLL class with init method to create start refernce variable
