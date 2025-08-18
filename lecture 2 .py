@@ -5,6 +5,9 @@ Array is a collection of Homogenous data and a built in module, it needs to be i
 It can support only limited type of data such as str,int,float and that's why Numpy is used more often.
 Arrays have fixed size, dynamic arrays are growable.
 Elements of the array can be indexed.
+
+Q. What is the difference between Array and a dynamic array?
+ans. Array is of a fixed size, dynamic array is resizable.
 '''
 
 from array import *
@@ -35,6 +38,9 @@ a1.extend([23,24,25])
 print(a1)
 
 # 4. fromlist()
+temp_list = [99, 100, 101]
+a1.fromlist(temp_list)
+print("After fromlist:", a1)
 
 
 # 5. index()
@@ -61,7 +67,7 @@ a1
 
 '''
 Lists is a class with heterogenous data, it is mutable and can be indexed.
-Lists can grow because they use dynamic arrays.
+Lists can grow because they use and are up of dynamic arrays.
 '''
 
 l1 = [23,34,56.98,'abcdef']
@@ -99,3 +105,4 @@ l1
 #10. clear()
 l1.clear()
 l1
+
