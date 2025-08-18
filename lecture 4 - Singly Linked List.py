@@ -1,5 +1,5 @@
 '''
-define a class None to describe a node of a Singly Linked List
+define a class Node to describe a node of a Singly Linked List
 define a class SLL to implement Singly Linked List with init method to create and initialize start reference var.
 define functions to insert items at the start, end and in the middle of a list
 define functions to delete items at the start, end and in the middle of a list
