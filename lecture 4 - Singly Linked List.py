@@ -1,4 +1,8 @@
-'''
+'''Singly Linked Lists
+
+SLL are a type of Linear Data Structure, they can propagate or move in only forward direction which is also a drawback sometimes.
+Every SLL node has item, next.
+
 define a class Node to describe a node of a Singly Linked List
 define a class SLL to implement Singly Linked List with init method to create and initialize start reference var.
 define functions to insert items at the start, end and in the middle of a list
@@ -108,6 +112,9 @@ mylist.insert_at_start(10)
 mylist.insert_at_start(20)
 mylist.insert_at_last(30)
 mylist.insert_after(mylist.search(20),25)
+for x in mylist: #using iterator to print the list
+    print(x, end=" ")
+print()
 mylist.print_list()
 mylist.delete_item(20)
 mylist.print_list()
