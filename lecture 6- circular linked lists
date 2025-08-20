@@ -1,0 +1,162 @@
+'''Circularly linked list
+
+CLL helps to propagate or move in both directions, every DLL node has a prev, item, next. 
+
+--> make a node class to define a node 
+--> make a CLL class with init method to create start refernce variable
+--> make a function to check if the list is empty
+--> make functions to insert nodes at the start, at last or between a particular node
+--> make functions to delete nodes at the start, at last or between a particular node
+--> make a function to search an item of the list
+--> make a function to print the list
+--> make a class and a function to iterate the list
+'''
+
+class Node:
+    def __init__(self, item=None, next=None):
+        self.item=item
+        self.next=next
+
+class CLL:
+    def __init__(self, last=None):
+        self.last=last
+
+    def is_empty(self):
+        return self.last==None
+    
+    def insert_at_first(self,data):
+        n=Node(data)
+        if self.is_empty(): #if the list is empty
+            n.next=n       #node will refer itself
+            self.last=n    # last will point the new node
+        else:
+            n.next=self.last.next
+            self.last.next=n
+
+    def insert_at_last(self,data):
+        n=Node(data)
+        if self.is_empty():
+            n.next=n
+            self.last=n
+        else:
+            n.next=self.last.next
+            self.last.next=n
+            self.last=n
+
+    def search(self,data):
+        if self.is_empty():
+            return None
+        temp=self.last.next
+        while temp!=self.last: #until temp will not reach the self.last object
+            if temp.item==data:
+                return temp
+        if temp.item==data: #for the self.last node
+            return temp
+        return None
+    
+    def insert_after(self,temp,data):
+        if temp is not None:
+            n=Node(data,temp.next)
+            temp.next=n
+            if temp==self.last:
+                self.last=n
+
+    def print_list(self):
+        if not self.is_empty():
+            temp=self.last.next
+            while temp!=self.last:
+                print(temp.item, end=' ')
+                temp=temp.next
+            print(temp.item)  #to print the self.last object
+
+    def delete_first(self):
+        if not self.is_empty():
+            if self.last.next==self.last:
+                self.last=None
+            else:
+                self.last.next=self.last.next.next
+    
+    def delete_last(self):
+        if not self.is_empty():  #for only 1 node, you delete it
+            if self.last.next == self.last:
+                self.last = None
+        else:   #atleast 2 or more nodes
+            temp = self.last.next
+            while temp.next!=self.last: #traverse temp until the second last node
+                temp=temp.next
+            temp.next=self.last.next  #to delete the last node
+            self.last=temp
+
+    
+    def delete_item(self,data):
+        if not self.is_empty():  #not empty list
+            if self.last.next==self.last:  #has 1 node only
+                if self.last.item==data:
+                    self.last=None
+
+            else:                 #has more than 1 node
+                if self.last.next.item==data:  #data matches the first node
+                    self.delete_first()
+                else:                          #data does not matches then traverse to the next node
+                    temp=self.last.next
+                    while temp!=self.last:   #traverse until the second last node
+                        if temp.next==self.last:  #last node
+                            if self.last.item==data:  #delete the last node
+                                self.delete_last()
+                            break
+
+                        if temp.next.item==data: # to delete the next node
+                            temp.next=temp.next.next
+                            break
+                        temp=temp.next
+
+    def __iter__(self):
+        if self.last==None:
+            return CLLIterator(None)
+        else:
+            return CLLIterator(self.last.next)
+        
+
+class CLLIterator:
+    def __init__(self,start):
+        self.current=start
+        self.start=start
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.current==None:
+            raise StopIteration
+        data=self.current.item
+        self.current=self.current.next
+        if self.current==self.start:
+            raise StopIteration
+        return data
+    
+
+if __name__ == "__main__":
+    mylist = CLL()
+    mylist.insert_at_first(10)
+    mylist.insert_at_first(35)
+    mylist.insert_at_last(20)
+    mylist.insert_after(mylist.search(10), 15)
+    mylist.insert_after(mylist.search(15), 20)
+    mylist.insert_after(mylist.search(20), 30)
+    mylist.delete_first()
+    mylist.delete_last()
+    mylist.delete_item(20)
+
+
+    print("Using print_list():")
+    mylist.print_list()
+
+    print("Using iterator:")
+    for x in mylist:
+        print(x, end=" ")
+    print()
+
+
+
+
+
+
+
