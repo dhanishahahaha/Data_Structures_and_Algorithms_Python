@@ -1,6 +1,10 @@
 '''Circularly linked list
 
-CLL helps to propagate or move in both directions, every DLL node has a prev, item, next. 
+CLL helps to propagate or move in both directions, every CLL node has a item, next. 
+CLL has a self.last instead of self.start, which is connected to the last node of the list.
+The next of the last node of the list is connected to the first node of the list.
+This helps to reduce the time by avoiding traversing the list everytime which accessing, insertion or deletion
+of nodes.
 
 --> make a node class to define a node 
 --> make a CLL class with init method to create start refernce variable
@@ -50,6 +54,7 @@ class CLL:
         while temp!=self.last: #until temp will not reach the self.last object
             if temp.item==data:
                 return temp
+            temp=temp.next
         if temp.item==data: #for the self.last node
             return temp
         return None
@@ -121,15 +126,18 @@ class CLLIterator:
     def __init__(self,start):
         self.current=start
         self.start=start
+        self.count=0
     def __iter__(self):
         return self
     def __next__(self):
         if self.current==None:
             raise StopIteration
+        if self.current==self.start and self.count==1:
+            raise StopIteration
+        else:
+            self.count=1
         data=self.current.item
         self.current=self.current.next
-        if self.current==self.start:
-            raise StopIteration
         return data
     
 
