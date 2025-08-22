@@ -1,5 +1,15 @@
 '''
-Circular Doubly Linked List
+Circular Doubly Linked List - Combination of Circular and Doubly Linked Lists.
+Each node in CDLL has a prev,item,next.
+
+--> make a node class to define a node 
+--> make a CDLL class with init method to create start refernce variable
+--> make a function to check if the list is empty
+--> make functions to insert nodes at the start, at last or between a particular node
+--> make functions to delete nodes at the start, at last or between a particular node
+--> make a function to search an item of the list
+--> make a function to print the list
+--> make an Iterator class and a function to iterate the list
 '''
 
 
