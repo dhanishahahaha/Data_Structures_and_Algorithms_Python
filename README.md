@@ -5,4 +5,4 @@ Data Structures and Algorithms in Python.
 2. Singly Linked Lists
 3. Doubly Linked Lists
 4. Circular Linked Lists
-5. 
+5. Circular doubly linked Lists
