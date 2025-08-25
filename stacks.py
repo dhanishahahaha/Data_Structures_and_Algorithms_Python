@@ -5,11 +5,12 @@
 --> The working principle of stack is 'Last In First Out' (LIFO).
 --> Operations on stack: A) Push B) Pop C) Peek D) is_empty E) size.
 
---> Implementation of Stack:- 
+--> Implementation of Stack:- (5 different methods)
 1. using List
 2. by extending or inheriting a list class
 3. using a Linked List
-4. 
+4. using already existing Singly Linked List code
+5. by inheriting the SLL class in the Stack class
   
 '''
 
@@ -109,6 +110,7 @@ s1.display()
 
 
 # 3. Implementation of stack using a Singly Linked list
+
 ''' The aim is to make a SLL which behaves as a stack using the concept of FILO, insertion, deletion and 
 accessing at any one end of the list is possible.
 
@@ -175,7 +177,6 @@ sll_as_stack.display()
 
 # 4. Implementation of Stack using Singly Linked List class 
 
-
 '''
 The aim is to make a Stack class which uses the previously made SLL class and implement its function on stack.
 --> Import module containing SLL code 
@@ -224,3 +225,64 @@ print("element at the top: ",stacklist.peek())
 stacklist.pop()
 print("elements of the stack are: ")
 stacklist.display()
+
+
+# 5. Implementation of Stack by inheriting the class SLL
+
+'''
+Aim is to make a Stack class by inheriting the already existing SLL class
+
+--> Import module containing SLL code 
+--> Define a Stack class to implement the data structure Stack, inheriting the SLL class.
+--> Define a method is_empty() to check if the stack is empty or not.
+--> Define a method push() to add an item to the top of the stack.
+--> Define a method pop() to remove an item from the top of the stack.
+--> Define a method peek() to return the top item of the stack without removing it.
+--> Define a method size() to return the number of items in the stack.
+--> Define a method display() to view all the elements of the stack.
+'''
+
+from SinglyLinkedList import *
+
+class Stack(SLL):
+    def __init__(self):
+        super().__init__()
+        self.item_count=0
+    def is_empty(self):
+        return super().is_empty()
+    def push(self,data):
+        self.insert_at_start(data)
+        self.item_count+=1
+    def pop(self):
+        if not self.is_empty():
+            self.delete_first()
+            self.item_count-=1
+        else:
+            raise IndexError("Stack Underflow")
+    def peek(self):
+        if not self.is_empty():
+            return self.start.item
+        else:
+            raise IndexError("Stack Underflow")
+    def size(self):
+        return self.item_count
+    
+    def display(self):
+        if not self.is_empty():
+            self.print_list()
+        else:
+            raise IndexError("Stack Underflow")
+    
+sll_in_stack=Stack()
+sll_in_stack.push(101)
+sll_in_stack.push(102)
+sll_in_stack.push(103)
+print("first element is: ",sll_in_stack.peek())
+print("Elements of the stack are: ")
+sll_in_stack.display()
+sll_in_stack.size()
+sll_in_stack.pop()
+print("first element is: ",sll_in_stack.peek())
+sll_in_stack.size()
+print("Elements of the stack are: ")
+sll_in_stack.display()
