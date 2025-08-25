@@ -8,7 +8,8 @@
 --> Implementation of Stack:- 
 1. using List
 2. by extending or inheriting a list class
-3. 
+3. using a Linked List
+4. 
   
 '''
 
@@ -172,3 +173,54 @@ print("elements on the top: ",sll_as_stack.peek())
 print("total elements in the stack are: ",sll_as_stack.size())
 sll_as_stack.display()
 
+# 4. Implementation of Stack using Singly Linked List class 
+
+
+'''
+The aim is to make a Stack class which uses the previously made SLL class and implement its function on stack.
+--> Import module containing SLL code 
+--> Define a Stack class to implement the data structure Stack, define __init__ method to create SLL object.
+--> Define a method is_empty() to check if the stack is empty or not.
+--> Define a method push() to add an item to the top of the stack.
+--> Define a method pop() to remove an item from the top of the stack.
+--> Define a method peek() to return the top item of the stack without removing it.
+--> Define a method size() to return the number of items in the stack.
+--> Define a method display() to view all the elements of the stack.
+
+'''
+
+from SinglyLinkedList import *
+
+class Stack:
+    def __init__(self):
+        self.mylist=SLL()  #sll object
+        self.item_count=0
+    def is_empty(self):
+        return self.mylist.is_empty()  #using already make is_empty func from the SLL class
+    def push(self,data):
+        self.mylist.insert_at_start(data)  #insertion and deletion only at first/top
+        self.item_count+=1
+    def pop(self):
+        self.mylist.delete_first()
+        self.item_count-=1
+    def peek(self):
+        if not self.is_empty():
+            return self.mylist.start.item  #the reference of top node is in item of start in the SLL
+    def size(self):
+        return self.item_count
+    def display(self):
+        if not self.is_empty():
+            self.mylist.print_list()
+        else:
+            raise IndexError("Stack is empty")
+    
+stacklist=Stack()
+stacklist.push(90)
+stacklist.push(80)
+stacklist.push(70)
+print("elements of the stack are: ")
+stacklist.display()
+print("element at the top: ",stacklist.peek())
+stacklist.pop()
+print("elements of the stack are: ")
+stacklist.display()

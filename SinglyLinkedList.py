@@ -105,7 +105,7 @@ class SLLIterator: #to make the SLL class Iterable
         return data
 
 
-
+'''
 #driver code
 mylist = SLL()
 mylist.insert_at_start(10)
@@ -118,5 +118,5 @@ print()
 mylist.print_list()
 mylist.delete_item(20)
 mylist.print_list()
-
+'''
         
