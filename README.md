@@ -6,5 +6,5 @@ Data Structures and Algorithms in Python.
 3. Doubly Linked Lists
 4. Circular Linked Lists
 5. Circular doubly linked Lists
-6. Stacks
+6. Stacks - a) using lists, b) by inheriting list class, c)
 7. 
