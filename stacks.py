@@ -67,8 +67,8 @@ print("Items of the List are: ",myStack.display())
 --> Define a method pop() to remove an item from the top of the stack.
 --> Define a method peek() to return the top item of the stack without removing it.
 --> Define a method size() to return the number of items in the stack.
---> Define a method insert() to restrict the insert function from the list class.
 --> Implement a way to restrict the use of insert() method of list class from the stack object.
+--> Define a method display() to show all the elements of the stack.
 '''
 
 
@@ -105,3 +105,70 @@ s1.push(50)
 print("top element of the stack is: ",s1.peek())
 #s1.insert(2,60)  throws attribute error
 s1.display()
+
+
+# 3. Implementation of stack using a Singly Linked list
+''' The aim is to make a SLL which behaves as a stack using the concept of FILO, insertion, deletion and 
+accessing at any one end of the list is possible.
+
+--> make a SLL class to use the concept of stack, make a start var to initialize and item_count to keep a track
+    of elements.
+--> Define a method is_empty() to check if the stack is empty or not.
+--> Define a method push() to add an item to the top of the stack.
+--> Define a method pop() to remove an item from the top of the stack.
+--> Define a method peek() to return the top item of the stack without removing it.
+--> Define a method size() to return the number of items in the stack.
+'''
+
+class Node:
+    def __init__(self,item=None,next=None):
+        self.item=item
+        self.next=next
+class Stack:
+    def __init__(self):
+        self.start=None
+        self.item_count=0
+    def is_empty(self):
+        return self.start==None
+    def push(self,data):  #insertion only at the start or top
+        n=Node(data,self.start)
+        self.start=n
+        self.item_count+=1
+    def pop(self):
+        if not self.is_empty(): #deletion only at the start or top of the list
+            data=self.start.item
+            self.start=self.start.next
+            self.item_count-=1
+            return data
+        else:
+            raise IndexError("Stack is empty")
+    def peek(self):   #show only the start or top item of the stack
+        if not self.is_empty():
+            return self.start.item 
+        else:
+            raise self.is_empty()
+    def size(self):
+        return self.item_count
+    def display(self):  #to display all the items of the stack
+        temp=self.start
+        if not self.is_empty():
+            while temp is not None:
+                print(temp.item, end=" ")
+                temp=temp.next
+            print()
+        else:
+            raise IndexError("Stack is Empty")
+    
+    
+sll_as_stack=Stack()
+sll_as_stack.push(40)
+sll_as_stack.push(50)
+sll_as_stack.push(60)
+print("elements on the top: ",sll_as_stack.peek())
+print("total elements in the stack are: ",sll_as_stack.size())
+sll_as_stack.display()
+sll_as_stack.pop()
+print("elements on the top: ",sll_as_stack.peek())
+print("total elements in the stack are: ",sll_as_stack.size())
+sll_as_stack.display()
+
