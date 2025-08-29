@@ -93,3 +93,84 @@ print("Number of elements in queue are: ",q1.size())
 print(q1.get_front())
 print(q1.get_rare())
 print(q1.display())
+
+
+# 1. Implementation of Queue using Singly Linked List concept
+'''
+--> Define a class Queue to implement Queue data structure. Define init method to create an empty list object 
+    as instance object member of queue.
+--> Define a method is_empty() to check if the queue is empty or not.
+--> Define a method enqueue() to add an item to the queue.
+--> Define a method dequeue() to remove an item from queue.
+--> Define a method get_front() to return the top item of the queue without removing it.
+--> Define a method get_rare() to return the last item of the queue without removing it.
+--> Define a method size() to return the number of items in the queue.
+--> Define a method display() to view elements of the entire stack from top to bottom.
+'''
+
+class Node:
+    def __init__(self, item=None, next=None):
+        self.item=item
+        self.next=next
+class Queue:
+    def __init__(self):
+        self.front=None  #deletion
+        self.rare=None   #insertion
+        self.item_count=0
+    def is_empty(self):
+        return self.front==None
+    def enqueue(self,data):
+        n=Node(data)
+        if self.is_empty():
+            self.rare=n
+            self.front=n
+        else:
+            self.rare.next=n
+            self.rare=n
+        self.item_count+=1
+    def dequeue(self):
+        if self.is_empty():
+            raise IndexError("Queue Underflow")
+        elif self.rare==self.front:
+            self.rare=None
+            self.front=None
+        else:
+            self.front=self.front.next
+        self.item_count-=1
+    def get_front(self):
+        if self.is_empty():
+            raise IndexError("Queue Underflow")
+        else:
+            return self.front.item
+    def get_rare(self):
+        if self.is_empty():
+            raise IndexError("Queue Underflow")
+        else:
+            return self.rare.item
+    def size(self):
+        return self.item_count
+    def display(self):
+        temp=self.front
+        if not self.is_empty():
+            while temp is not None:
+                print(temp.item, end=" ")
+                temp=temp.next
+            print()
+        else:
+            raise IndexError("Queue Underflow")
+        
+q2=Queue()
+q2.enqueue(100)
+q2.enqueue(101)
+q2.enqueue(102)
+q2.enqueue(103)
+q2.enqueue(104)
+print("the size of the queue is ",q2.size())
+q2.display()
+print("The rare element is",q2.get_rare())
+print("The front element is",q2.get_front())
+q2.dequeue()
+print("the size of the queue is ",q2.size())
+q2.display()
+print("The rare element is",q2.get_rare())
+print("The front element is",q2.get_front())
