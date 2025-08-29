@@ -95,7 +95,7 @@ print(q1.get_rare())
 print(q1.display())
 
 
-# 1. Implementation of Queue using Singly Linked List concept
+# 2. Implementation of Queue using Singly Linked List concept
 '''
 --> Define a class Queue to implement Queue data structure. Define init method to create an empty list object 
     as instance object member of queue.
