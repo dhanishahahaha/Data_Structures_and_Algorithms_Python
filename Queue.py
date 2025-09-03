@@ -15,9 +15,9 @@
 
 --> Implementation of Queue:-
     a) using Lists
-    b) by extending list class
+    b) by inheriting a list class
     c) using SLL class
-    d) by extending SLL class
+    d) by inheriting a SLL class
     e) using Linked List concept
 '''
 
@@ -217,11 +217,11 @@ class Queue:
             print()
         
 q4=Queue() # front element --- more elements --- rare element
-q4.enqueue(100)
-q4.enqueue(101)
-q4.enqueue(102)
-q4.enqueue(103)
-q4.enqueue(104)
+q4.enqueue(50)
+q4.enqueue(51)
+q4.enqueue(52)
+q4.enqueue(53)
+q4.enqueue(54)
 print("the size of the queue is ",q4.size())
 q4.display()
 print("The rare element is",q4.get_rare())
@@ -232,6 +232,91 @@ q4.display()
 print("The rare element is",q4.get_rare())
 print("The front element is",q4.get_front())
 
+
+#4. Implementation of queue by inheriting a SLL class
+
+'''
+Aim is to make a queue class by inheriting the already existing SLL class
+
+--> Import module containing SLL code 
+--> Define a Queue class to implement the data structure Queue, inheriting the SLL class.
+--> Define a method is_empty() to check if the queue is empty or not.
+--> Define a method enqueue() to add an item to the queue.
+--> Define a method dequeue() to remove an item from queue.
+--> Define a method get_front() to return the top item of the queue without removing it.
+--> Define a method get_rare() to return the last item of the queue without removing it.
+--> Define a method size() to return the number of items in the queue.
+--> Define a method display() to view elements of the entire stack from top to bottom.
+'''
+
+from SinglyLinkedList import *
+
+class Queue(SLL):
+    def __init__(self):
+        super().__init__()
+        self.item_count=0
+
+    def is_empty(self):
+        return super().is_empty()
+    
+    def enqueue(self,data):
+        self.insert_at_start(data)
+        self.item_count+=1
+
+    def dequeue(self):
+        if not self.is_empty():
+            self.delete_first()
+            self.item_count-=1
+        else:
+            raise IndexError("Queue Underflow")
+        
+    def get_front(self):
+        if not self.is_empty():
+            return self.start.item
+        else:
+            raise IndexError("Queue Underflow")
+        
+    def get_rare(self):
+        if not self.is_empty():
+            temp = self.start
+            while temp.next is not None:
+                temp = temp.next
+            return temp.item
+        raise IndexError("Queue Underflow")
+    
+    
+    def size(self):
+        return self.item_count
+    
+    def display(self):
+        if not self.is_empty():
+            temp=self.start
+            while temp is not None:
+                print(temp.item, end=" ")
+                temp=temp.next
+            print()
+        else:    
+            raise IndexError("Queue Underflow")
+    
+        
+    
+
+q5=Queue()
+q5.enqueue(111)
+q5.enqueue(222)
+q5.enqueue(333)
+q5.enqueue(444)
+q5.enqueue(555)
+print("the size of the queue is ",q5.size())
+q5.display()
+print("The rare element is",q5.get_rare())
+print("The front element is",q5.get_front())
+q5.dequeue()
+print("the size of the queue is ",q5.size())
+q5.display()
+print("The rare element is",q5.get_rare())
+print("The front element is",q5.get_front())
+    
     
 
 #5. Implementation of Queue using Singly Linked List concept
