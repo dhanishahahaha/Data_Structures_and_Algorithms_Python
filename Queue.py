@@ -154,8 +154,87 @@ print("elements of the queue are: ",q3.display())
 print("size of the queue is: ",q3.size())
 
 
+#3. Implementation of queue by using a already made Singly Linked list
 
-#3. Implementation of Queue using Singly Linked List concept
+''' 
+--> Use the SLL class to implement the concept of queue, use the SLL to initialize and item_count to keep a track
+    of elements.
+--> Define a method is_empty() to check if the queue is empty or not.
+--> Define a method enqueue() to add an item to the queue.
+--> Define a method dequeue() to remove an item from queue.
+--> Define a method get_front() to return the top item of the queue without removing it.
+--> Define a method get_rare() to return the last item of the queue without removing it.
+--> Define a method size() to return the number of items in the queue.
+--> Define a method display() to view elements of the entire stack from top to bottom.
+'''
+
+from SinglyLinkedList import * 
+
+class Queue:
+    def __init__(self):
+        self.mylist=SLL()
+        self.item_count=0
+
+    def is_empty(self):
+        return self.mylist.is_empty()
+    
+    def enqueue(self,data):
+        self.mylist.insert_at_start(data)
+        self.item_count+=1
+
+    def dequeue(self):
+        if self.is_empty():
+            raise IndexError("Queue Underflow")
+        else:
+            delete= self.mylist.delete_first()
+            self.item_count-=1
+            return delete
+        
+    def get_front(self):
+        if not self.is_empty():
+            return self.mylist.start.item
+        raise IndexError("Queue Underflow")
+
+    def get_rare(self):
+        if self.is_empty():
+            raise IndexError("Queue Underflow")
+        temp = self.mylist.start
+        while temp.next is not None:
+            temp = temp.next
+        return temp.item
+        
+        
+    def size(self):
+        return self.item_count
+
+
+    def display(self):
+        temp=self.mylist.start
+        if not self.is_empty():
+            while temp is not None:
+                print(temp.item, end=" ")
+                temp=temp.next
+            print()
+        
+q4=Queue() # front element --- more elements --- rare element
+q4.enqueue(100)
+q4.enqueue(101)
+q4.enqueue(102)
+q4.enqueue(103)
+q4.enqueue(104)
+print("the size of the queue is ",q4.size())
+q4.display()
+print("The rare element is",q4.get_rare())
+print("The front element is",q4.get_front())
+q4.dequeue()
+print("the size of the queue is ",q4.size())
+q4.display()
+print("The rare element is",q4.get_rare())
+print("The front element is",q4.get_front())
+
+    
+
+#5. Implementation of Queue using Singly Linked List concept
 '''
 --> Define a class Queue to implement Queue data structure. Define init method to create an empty list object 
     as instance object member of queue.

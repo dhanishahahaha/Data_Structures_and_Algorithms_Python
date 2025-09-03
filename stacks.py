@@ -175,7 +175,7 @@ print("elements on the top: ",sll_as_stack.peek())
 print("total elements in the stack are: ",sll_as_stack.size())
 sll_as_stack.display()
 
-# 4. Implementation of Stack using Singly Linked List class 
+# 4. Implementation of Stack using a already made Singly Linked List class 
 
 '''
 The aim is to make a Stack class which uses the previously made SLL class and implement its function on stack.
