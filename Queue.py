@@ -95,7 +95,67 @@ print(q1.get_rare())
 print(q1.display())
 
 
-# 2. Implementation of Queue using Singly Linked List concept
+#2. Implementation of Queue by Inheriting a List
+'''
+--> Define a class Queue inheriting a list class.Define init method to create an empty list object 
+    as instance object member of queue.
+--> Define a method is_empty() to check if the queue is empty or not.
+--> Define a method enqueue() to add an item to the queue.
+--> Define a method dequeue() to remove an item from queue.
+--> Define a method get_front() to return the top item of the queue without removing it.
+--> Define a method get_rare() to return the last item of the queue without removing it.
+--> Define a method size() to return the number of items in the queue.
+--> Define a method display() to view elements of the entir
+
+'''
+
+class Queue(list):
+    def is_empty(self):
+        return len(self)==0 #because self is a part of class List which is inherited
+
+    def enqueue(self,data):
+        self.append(data)
+    
+    def dequeue(self):
+        if not self.is_empty():
+            return super().pop()
+        else:
+            raise IndexError("Queue Underflow")
+    
+    def get_front(self):
+        if not self.is_empty():
+            return self[0]
+        raise IndexError("Queue Underflow")
+    
+    def get_rare(self):
+        if not self.is_empty():
+            return self[-1]
+        raise IndexError("Queue Underflow")
+    
+    def size(self):
+        return len(self)
+    
+    def display(self):
+        return self[::-1]
+    
+q3=Queue()
+q3.enqueue(1)
+q3.enqueue(2)
+q3.enqueue(3)
+q3.enqueue(4)
+print("top element: ",q3.get_front())
+print("last element: ",q3.get_rare())
+print("elements of the queue are: ",q3.display())
+print("size of the queue is: ",q3.size())
+q3.dequeue()
+print("top element: ",q3.get_front())
+print("last element: ",q3.get_rare())
+print("elements of the queue are: ",q3.display())
+print("size of the queue is: ",q3.size())
+
+
+
+#3. Implementation of Queue using Singly Linked List concept
 '''
 --> Define a class Queue to implement Queue data structure. Define init method to create an empty list object 
     as instance object member of queue.
