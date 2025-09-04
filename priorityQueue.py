@@ -45,7 +45,7 @@ class PriorityQueue:
         if self.is_empty():
             raise IndexError("Priority Queue is empty")
         else:
-            self.items.pop(0)[0]  #(0) --> index for the pop method, [0]--> data in the tuple of that index
+            return self.items.pop(0)[0]  #(0) --> index for the pop method, [0]--> data in the tuple of that index
 
 
 #Usually, we do not pop any element in the Priority Queue but the one with the highest priority number, therefore, this method is only for practice.
@@ -55,7 +55,7 @@ class PriorityQueue:
         else:
             if index<0 or index>=len(self.items):
                 raise IndexError("Invalid Index")
-            self.items.pop(index)[0]  #in every index data,pri -- [0] is data
+            return self.items.pop(index)[0]  #in every index data,pri -- [0] is data
 
     def size(self):
         return len(self.items)
@@ -82,3 +82,8 @@ print("priority queue: ",p.display())
 p.pop_any(3)
 print("Number of elements in the Priority Queue are: ",p.size())
 print("priority queue: ",p.display())
+
+
+while not p.is_empty():
+    print(p.pop())
+
