@@ -8,5 +8,5 @@ Data Structures and Algorithms - Python.
 5. Circular doubly linked Lists
 6. Stacks - a) using lists, b) by inheriting list class, c)by using a Linked List, d) by using already existing Linked List code, e) by inheriting Linked List into Stack class.
 7. Queues
-8. Dequeues
-9. 
+8. Deque
+9. Priority Queue
