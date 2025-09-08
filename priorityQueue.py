@@ -87,3 +87,24 @@ print("priority queue: ",p.display())
 while not p.is_empty():
     print(p.pop())
 
+
+#2. Implementation of Priority Queue using Linked List Concept
+
+class Node:
+    def __init__(self,item=None,priority=None,next=None):
+        self.item=item
+        self.priority=priority
+        self.next=next
+    
+
+class PriorityQueue:
+    def __init__(self):
+        self.start=None
+        self.item_count=0
+
+    def push(self,data,priority):
+        n=Node(data,priority)                               #if there is None in self.start , i.e list empty OR
+        if not self.start or priority<=self.start.priority:  #the priority of the new element is lesser than the priority of the first element , then we add the new node in start
+            n.next=self.start  #ref of the node which was first till now
+            self.start=n
+        
