@@ -90,6 +90,74 @@ while not p.is_empty():
 
 #2. Implementation of Priority Queue using Linked List Concept
 
-
-
+'''
+--> Define a class Node with instance member var item, priority and next.
+--> Define a class Priority Queue to implement priority Queue data structure using Singly Linked List. Define a 
+    init method to provide a start and item_count variable.
+--> Define a push method to insert a new data with given priority.
+--> Define a is_empty method to check if the Priority Queue is empty or not.
+--> Define a pop method to remove a item of the HIGHEST priority.
+--> Define a size method to show the size of the Priority Queue.
+--> Define a display method to show  all the elements of the Priority Queue.'''
     
+class Node:
+    def __init__(self,item=None,priority=None,next=None):
+        self.item=item
+        self.priority=priority
+        self.next=next
+
+class PriorityQueue2:
+    def __init__(self):
+        self.start=None
+        self.item_count=0
+
+    def push(self,data,priority):
+        n=Node(data,priority) #next is None
+        if not self.start or priority<self.start.priority: #either list empty or priority of new node is less than the first node.
+            n.next=self.start  #then insert at the first place
+            self.start=n
+        else:
+            temp=self.start
+            while temp.next and temp.next.priority <= priority:  #run loop until temp is None and until we don't find a greater priority
+                temp=temp.next
+            n.next=temp.next
+            temp.next=n
+        self.item_count+=1
+
+    def is_empty(self):
+        return self.start==None
+    
+    def pop(self):
+        if self.is_empty():
+            raise IndexError("Priority Queue is empty")
+        data=self.start.item  #highest priority at first item because sorted SLL
+        self.start=self.start.next
+        self.item_count-=1
+        return data
+    
+    def size(self):
+        return self.item_count
+            
+    def display(self):
+        if self.is_empty():
+            raise IndexError("Priority Queue is empty")
+        else:
+            temp=self.start
+            while temp is not None:
+                print(temp.item, end=" ")
+                temp=temp.next
+            print()
+
+
+p2=PriorityQueue2()
+p2.push("aba",2)
+p2.push("aaa",1)
+p2.push("bbb",4)
+p2.push("bba",6)
+p2.push("bab",5)
+p2.push("aab",3)
+print("The size of the Priority Queue is: ",p2.size())
+print("Elements are: ",p2.display())
+p2.pop()
+print("The size of the Priority Queue is: ",p2.size())
+print("Elements are: ",p2.display())
