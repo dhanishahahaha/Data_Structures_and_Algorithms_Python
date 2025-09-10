@@ -37,5 +37,23 @@ ordered pair of disjoint binary trees T1 and T2.
 --> One of the version of Binary Tree is "Binary Search Tree".
 
 
-Binary Search Tree
+Binary Search Tree - One of the most important data structures, it enables one to search and find for an element
+with the average running time with complexity f(n) = O(log2n)
+
+--> In BST, to find or search for a particular element we don't have to n comparisions unlike SLL which makes
+    searching very efficient in BST.
+
+--> Even in the worst case scenarios where the element is not found , we do not have to make n comparisions but
+    log2n comparisions (i.e 10 for 1000 elements).
+
+--> By default, Duplicate values are not allowed in BST.
+--> In BST, all smaller elements are placed on the left side of the node or in the left subtree and all equal 
+    or larger values are placed in the right side of the node or the right subtree.
+
+--> Implementation in the BST:- 1) Node
+                                2) Insertion
+                                3) Search
+                                4) Traversing
+                                5) Deletion
+                                
 '''
