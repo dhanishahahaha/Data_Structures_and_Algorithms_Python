@@ -18,8 +18,9 @@
     h) Height/Depth of the tree - No. of the nodes in the largest branch OR Total no. of generations.
 
     
-Binary Tree - A binary tree is defined as a finite set of elements called nodes such that (a) tree is empty or
-(b) contains a distinguished node R called the root of the tree(T) and the remaining nodes of T form an 
+Binary Tree - A binary tree is defined as a finite set of elements called nodes such that 
+(a) the tree is empty or
+(b) it contains a distinguished node R called the root of the tree(T) and the remaining nodes of T form an 
 ordered pair of disjoint binary trees T1 and T2.
 
 --> Any node in the Binary tree has 0,1,or 2 child nodes.
@@ -55,5 +56,5 @@ with the average running time with complexity f(n) = O(log2n)
                                 3) Search
                                 4) Traversing
                                 5) Deletion
-                                
+
 '''
