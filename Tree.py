@@ -51,10 +51,11 @@ with the average running time with complexity f(n) = O(log2n)
 --> In BST, all smaller elements are placed on the left side of the node or in the left subtree and all equal 
     or larger values are placed in the right side of the node or the right subtree.
 
---> Implementation in the BST:- 1) Node
-                                2) Insertion
+--> Implementation in the BST:- 1) Node - every node in BST has left,item,right
+                                2) Insertion - for every element we start from the root node and insert on the basis of comparision of elemets from the nodes in left or right subtrees.
                                 3) Search
-                                4) Traversing
-                                5) Deletion
+                                4) Traversing - Preorder (root, Left Tree, Right Tree) , Inorder (Left Tree,Root, Right Tree) , PostOrder (Left Tree, Right Tree, Root) --> InOrder gives sorted elements
+                                5) Deletion - possible cases in deletion are a) No child, b) single child, c) two children
+
 
 '''
