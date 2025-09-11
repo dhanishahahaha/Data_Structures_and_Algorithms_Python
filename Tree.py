@@ -59,3 +59,17 @@ with the average running time with complexity f(n) = O(log2n)
 
 
 '''
+
+#Implementation of Binary Search Tree
+
+class Node:
+    def __init__(self,item=None,left=None,right=None):
+        self.item=item
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+    def insert(self,data):
+        
