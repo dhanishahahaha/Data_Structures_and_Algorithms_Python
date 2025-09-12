@@ -136,34 +136,60 @@ class BinarySearchTree:
             self.rpostorder(root.right,result)
             result.append(root.item)
 
-    def min_value(self,temp):
+    def min_value(self,temp=None):
+        if temp is None:
+            temp=self.root
         current=temp
-        while current.left is not None:
-            current=current.left
-        return current.item
+        while current.left is not None:  #move in left subtree until find a None
+            current=current.left  
+        return current.item  #when loop stop return item val
     
-    def max_value(self,temp):
+    def max_value(self,temp=None):
+        if temp is None:
+            temp=self.root
         current=temp
         while current.right is not None:
             current=current.right
         return current.item
     
     def delete(self,data):
-        self.root=self.rdelete(self.root,data)
+        self.root=self.rdelete(self.root,data)  #a new root is created everytime there is a subtree
     def rdelete(self,root,data):
-        if root is None:
+        if root is None:  #if tree empty, return the root only
             return None
-        if data<root.item:
+        if data<root.item:  #to move in left subtree for small values
             root.left=self.rdelete(root.left,data)
-        elif data>root.item:
+        elif data>root.item:  
             root.right=self.rdelete(root.right,data)
-        else:
-            if root.left is None:
-                return root.right
-            elif root.right is None:
-                return root.left
-            else:
-                
+        else:   #--> data==root.item
+            if root.left is None:  #only 1 child in right side and None at left
+                return root.right  #then attach the child to the prev root, current item deleted
+            elif root.right is None:  
+                return root.left  
+            root.item=self.min_value(root.right)  # in case of 2 children,to attach successor val, then attach the smallest val from the right subtree
+            root.right=self.rdelete(root.right,root.item)  # delete the attached val from its original place
+        return root
+    
+    def size(self):
+        return len(self.inorder())
+
+
+bst=BinarySearchTree()
+bst.insert(10)
+bst.insert(100)
+bst.insert(135)
+bst.insert(35)
+bst.insert(40)
+bst.insert(180)
+bst.inorder()
+bst.postorder()
+bst.size()
+bst.delete(100)
+bst.size()
+bst.min_value()
+bst.max_value()
+bst.min_value(bst.root.right)
+bst.max_value(bst.root.right)
     
 
 
