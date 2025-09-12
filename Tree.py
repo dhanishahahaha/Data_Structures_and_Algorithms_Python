@@ -136,6 +136,20 @@ class BinarySearchTree:
             self.rpostorder(root.right,result)
             result.append(root.item)
 
+    def min_value(self,temp):
+        current=temp
+        while current.left is not None:
+            current=current.left
+        return current.item
+    
+    def max_value(self,temp):
+        current=temp
+        while current.right is not None:
+            current=current.right
+        return current.item
+    
+
+
 
 
         
