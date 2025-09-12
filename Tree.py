@@ -148,6 +148,23 @@ class BinarySearchTree:
             current=current.right
         return current.item
     
+    def delete(self,data):
+        self.root=self.rdelete(self.root,data)
+    def rdelete(self,root,data):
+        if root is None:
+            return None
+        if data<root.item:
+            root.left=self.rdelete(root.left,data)
+        elif data>root.item:
+            root.right=self.rdelete(root.right,data)
+        else:
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+            else:
+                
+    
 
 
 
