@@ -70,6 +70,9 @@ with the average running time with complexity f(n) = O(log2n)
 --> Define a method to implement inorder traversing in BST.
 --> Define a method to implement preorder traversing in BST.
 --> Define a method to implement postorder traversing in BST.
+--> Define a method to find maximum and minimum value item node.
+--> Define a method to delete an item from the Binary search tree. 
+--> Define a method size to return the number of elements in BST.
 '''
 
 class Node:
@@ -132,5 +135,7 @@ class BinarySearchTree:
             self.rpostorder(root.left,result)
             self.rpostorder(root.right,result)
             result.append(root.item)
+
+
 
         
