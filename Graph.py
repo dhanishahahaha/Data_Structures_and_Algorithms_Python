@@ -1,6 +1,19 @@
 '''Graph
-'''
 
+--> A non-linear data structure.
+--> Tree is a special case of a graph.
+--> Nodes in graph are called Vertex or vertices. These vertex can be connected with edges.
+--> A graph consists of two main things: a set V of elements called nodes and a set E of egdes. G=(V,E)
+--> Degree of a node - No. of edges coming out of a vertex to be connected to anther vertex.
+--> Simple and Complex path: a) if no nodes are repeated or are distinct with the exception V0 may be equal to Vn in closed path then the path is simple 
+                             b) if the nodes are repeated then it is a complex path
+--> More graphs: a) Connected graphs and disconnected graphs b) Tree graphs c) Labelled graphs  d) weighted graphs e) Multiple edges, loop and multi graph f) Directed graph g) Complete graph
+
+--> Implementation of Graph:-
+    a) Implementation of Graph by Adjacency Matrix Representation
+    b) Implementation of Graph by Adjacency List Representation
+
+'''
 
 #Implementation of Graph by Adjacency Matrix
 
@@ -11,7 +24,8 @@
 --> Define add_edge method to add an edge in the matrix with the given weight.
 --> Define remove_edge method to remove an edge from the graph.
 --> Define has_edge method to check weather two given vertex are connected by an edge or not.
---> Define print_adj_matrix method to print adjacency matrix.'''
+--> Define print_adj_matrix method to print adjacency matrix.
+'''
 
 class Graph:
     def __init__(self,vno):
