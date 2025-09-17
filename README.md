@@ -12,3 +12,5 @@ Data Structures and Algorithms - Python.
 9. Priority Queue
 10. Tree
 11. Graph
+12. Sorting
+
