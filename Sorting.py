@@ -1,11 +1,22 @@
-'''Sorting'''
+'''Sorting
+
+1. Bubble sort
+2. Modified Bubble sort
+3. Selection sort
+4. Insertion sort
+5. Quick sort
+6. Merge sort
+7. Heap
+'''
+
 
 '''
 --> Write a python code to implement bubble sorting.
 --> Write a python code to implement modified bubble sort.
 --> Write a python code to implement the selection sort.
 --> Write a python code to implement the insertion sort.
---> Write a python code to implement the quick sort.
+--> Write a python code to implement the quick sort
+--> Write a python code to implement the merge sort.
 '''
 
 #Implementation of Bubble sort
@@ -82,3 +93,36 @@ def quick_sort(list1):
 my_list=[53,11,72,68,41,25,18,37,44,80]
 my_list=quick_sort(my_list)
 print(my_list)
+
+
+#Implementation of Merge sort
+def merge_sort(list1):
+    if len(list1)>1:
+        mid = len(list1)//2
+        leftlist=list1[:mid]
+        rightlist=list1[mid:]
+        merge_sort(leftlist)
+        merge_sort(rightlist)
+
+        i=j=k=0
+        while i<len(leftlist) and j<len(rightlist):
+            if leftlist[i]<rightlist[j]:
+                list1[k]= leftlist[i]
+                i+=1
+            else:
+                list1[k]=rightlist[j]
+                j+=1
+            k+=1
+
+        while i<len(leftlist):
+            list1[k]=leftlist[i]
+            i+=1
+            k+=1
+        while j<len(rightlist):
+            list1[k]=rightlist[j]
+            j+=1
+            k+=1
+
+list=[75,29,83,42,16,90,56,34,20,71,88,92,7]
+merge_sort(list)
+print(list)
