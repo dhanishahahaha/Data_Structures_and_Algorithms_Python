@@ -5,6 +5,7 @@
 --> Write a python code to implement modified bubble sort.
 --> Write a python code to implement the selection sort.
 --> Write a python code to implement the insertion sort.
+--> Write a python code to implement the quick sort.
 '''
 
 #Implementation of Bubble sort
@@ -37,7 +38,6 @@ print(l)
     
 
 #Implementation of the selection sort
-
 def selection_sort(list1):
     n = len(list1)
     for i in range(n):  #loop on all elements of list1
@@ -54,7 +54,6 @@ print(l)
 
 
 #Implementation of Insertion sort
-
 def insertion_sort(list1):
     for i in range(1,len(list1)):
         temp=list1[i]
@@ -68,3 +67,7 @@ def insertion_sort(list1):
 l = [22,67,48,13,89,54,21]
 insertion_sort(l)
 print(l)
+
+
+#Implementation of the Quick Sort
+
