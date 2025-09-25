@@ -12,5 +12,7 @@ Data Structures and Algorithms - Python.
 9. Priority Queue
 10. Tree
 11. Graph
-12. Sorting
+12. Sorting - Bubble sort, Modified Bubble sort, insertion sort
+13. Hashing
+14. Time Complexity
 
