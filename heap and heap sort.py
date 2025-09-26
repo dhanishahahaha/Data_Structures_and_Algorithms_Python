@@ -1,10 +1,30 @@
 '''Heap
+
+--> A binary tree is called a heap if it follows 2 properties:-
+1. The value at node N is greater than or equal to the value at each children node.
+2. The heap must be an almost complete binary tree.
+
+--> The heap used in an sorting algorithm is known as the Heap Sort. 
+--> Another usage of the heap is the Priority Queue.
+
+--> Representation of heap:- The heap is represented in the form of a list or linear array.
+
+--> How to find a parent or a child node index in the heap:-
+1. Index of the left child = 2*index+1
+2. Index of the right child = 2*index+2
+3. Index of the parent node = (index-1)//2
+
 '''
 
+#Implemetation of the heap and heap sort
 '''
 --> Make a class Heap to implement the Heap data structure with init method to create empty heap list.
 --> In class Heap, define a method to create a heap from the given list of elements.
 --> Define a method insert to insert a given element in the heap at the appropriate position.
+--> Define a method to return the top element of the heap.
+--> Define a method to delete the largest element of the heap.
+--> Define a method heapsort to sort the heap.
+--> Make a class EmptyHeapException to throw the exception in case of an empty heap.
 '''
 
 class EmptyHeapException(Exception):
