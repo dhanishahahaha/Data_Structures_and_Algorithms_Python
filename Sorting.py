@@ -6,7 +6,6 @@
 4. Insertion sort
 5. Quick sort
 6. Merge sort
-7. Heap
 '''
 
 
@@ -15,7 +14,7 @@
 --> Write a python code to implement modified bubble sort.
 --> Write a python code to implement the selection sort.
 --> Write a python code to implement the insertion sort.
---> Write a python code to implement the quick sort
+--> Write a python code to implement the quick sort.
 --> Write a python code to implement the merge sort.
 '''
 
@@ -126,3 +125,7 @@ def merge_sort(list1):
 list=[75,29,83,42,16,90,56,34,20,71,88,92,7]
 merge_sort(list)
 print(list)
+
+
+
+
