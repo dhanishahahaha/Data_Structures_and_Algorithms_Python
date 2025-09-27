@@ -14,9 +14,8 @@ Data Structures and Algorithms - Python.
 11. Graph
 12. Sorting - Bubble sort, Modified Bubble sort, insertion sort, selection sort, quick sort, merge sort
 13. Heap and Heap Sort
-14. Hashing
-15. Time Complexity
-16. Regular Expressions
-17. Exception Handling
+14. Searching , Hashing and Time Complexity
+15. Regular Expressions
+16. Exception Handling
 
 
