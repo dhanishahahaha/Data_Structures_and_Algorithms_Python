@@ -7,6 +7,28 @@
 --> Regex is Case sensitive.
 --> Methods to find matches  1.finditer 2.findall 3.match() 4.search()
 
+--> All meta characters . ^ $ * + ? { } [ ] | ( ) \ | ()
+    1. . any character
+    2. ^ starts with "^hello"
+    3. $ ends with "world$"
+    4. * zero or more occurances "aix*"
+    5. + one or more occurances "aix+"
+    6. { } exactly the specified number of occurances "al{2}"
+    7. [] a set of characters "[a-m]"
+    8. \ special sequence or escape special characters "\d"
+    9. | either or "falls|stays"
+    10. ( ) capture and group
+
+--> More special characters \d   \D   \w   \W   \s   \S   \b   \B   \A   \Z   \G
+    1. \d : Matches any decimal digit [0-9]
+    2. \D : Matches any non digit character 
+    3. \s : Matches any whitespace character (" " , \t , \n)
+    4. \S : Matches any non - whitespace character
+    5. \w : Matches any alpha-numeric word [a-zA-Z0-9_]
+    6. \W : Matches any non alpha-numeric word
+    7. \b : Matches where the specified characters are at the beginning or the end of a word.
+    8. \B : Matches where the specified characters are present, but not at the beginning
+
 '''
 #1. finditer() - returns the matched text span,start and end. 
 #matches = pattern.finditer(r"abc",test_string)
@@ -45,3 +67,31 @@ pattern=re.compile(r"abc")
 matches = pattern.search(test_string) 
 
 print(matches)
+
+#meta characters
+#1. . any character
+
+test_string = "123abc456789abc123ABC"
+pattern=re.compile(r".")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match.group())
+
+#2. ^ starts with 
+test_string = "123abc456789abc123ABC"
+pattern=re.compile(r"^123")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match)
+
+#3. $ ends with
+test_string = "123abc456789abc123ABC"
+pattern=re.compile(r"123$")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) #returns nothing because it doesnt end with 123
+
+    
