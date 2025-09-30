@@ -94,4 +94,74 @@ matches = pattern.finditer(test_string)
 for match in matches:
     print(match) #returns nothing because it doesnt end with 123
 
-    
+#special characters
+#1. \d - for all digit num
+import re
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\d")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
+
+#2. \D - for non digit nums
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\D")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
+
+
+#3. \s - for whitespace character
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\s")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
+
+
+#4. \S - for non whitespace character
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\S")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
+
+
+#5. \w - for alphanumeric character
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\w")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
+
+
+#6. \W - for non alphanumeric character
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\W")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
+
+
+#7. \b - for matching at the beginning of a string
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\bhello")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
+
+
+#8. \B - for matching NOT at the beginning of a string
+test_string = "hello 123 hello_ho hohey"
+pattern=re.compile(r"\Bhey")
+matches = pattern.finditer(test_string) 
+
+for match in matches:
+    print(match) 
